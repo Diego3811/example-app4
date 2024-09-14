@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Product; // Asegúrate de importar el modelo Product
+use App\Models\Product; 
 
 class ProductController extends Controller
 {
