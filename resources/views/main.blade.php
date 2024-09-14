@@ -44,7 +44,8 @@
         <img src="{{ asset('img/ZXT-H9-Elite.webp') }}" alt="NZXT H9 Elite">
         <h3>NZXT H9 Elite</h3>
         <p class="price">$2,799.99</p>
-        <button>Añadir</button>
+        <button class="btn-add-to-cart" data-product-id="{{ $product->id }}">Añadir al carrito</button>
+
         <button class="view-more">Ver más</button>
         
     </div>
