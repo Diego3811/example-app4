@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="{{ asset('css/styles2.css') }}">
     <style>
         .form-section {
-            display: none; /* Ambos formularios se ocultan por defecto */
+            display: none; 
         }
         .form-section.active {
-            display: block; /* Solo se mostrará el formulario activo */
+            display: block; /
         }
     </style>
 </head>
@@ -22,19 +22,20 @@
             <img src="{{ asset('img/TechZone_Logo_Dark.png') }}" alt="TechZone Logo" class="logo">
         </div>
     </div>
-    <div class="nav-links">
+    <!-- <div class="nav-links">
         <p><a href="#">Nosotros</a> | <a href="#">Contacto</a> | <a href="#">Blog</a></p>
-    </div>
+    </div> -->
     <div class="header-actions">
-        <div class="search-bar">
+       <!--  <div class="search-bar">
             <input type="text" placeholder="Buscar...">
-        </div>
-        <div class="cart">
-            <img src="{{ asset('img/cart.png') }}" alt="Carrito de Compras">
-        </div>
+        </div> -->
+       
         <div class="login-register">
             <a href="#" class="login" onclick="showLogin()">Inicio de Sesión</a>
             <a href="#" class="register" onclick="showRegister()">Registro</a>
+        </div>
+        <div class="cart">
+            <img src="{{ asset('img/cart.png') }}" alt="Carrito de Compras">
         </div>
     </div>
 </div>
