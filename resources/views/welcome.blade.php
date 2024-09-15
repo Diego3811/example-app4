@@ -12,6 +12,20 @@
         .form-section.active {
             display: block;
         }
+        .alert {
+            color: red;
+            border: 1px solid red;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        .alert ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .alert ul li {
+            margin: 0;
+        }
     </style>
 </head>
 <body>
@@ -40,14 +54,26 @@
         <div class="form-box">
             <img src="{{ asset('img/TechZone_Logo_Dark.png') }}" alt="TechZone Logo" class="logo">
             <h3>Registro de nuevo usuario</h3>
+            
+            <!-- Mensajes de error -->
+            @if ($errors->any())
+                <div class="alert">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            
             <form action="{{ route('store.form') }}" method="POST">
-                @csrf
-                <input type="text" name="name" placeholder="Nombre" required>
-                <input type="text" name="apellidos" placeholder="Apellidos" required>
-                <input type="email" name="correo" placeholder="Correo Electrónico" required>
-                <input type="password" name="password" placeholder="Contraseña" required>
-                <input type="password" name="password_confirmation" placeholder="Confirmar Contraseña" required>
-                <button type="submit">Registrarme</button>
+            @csrf
+            <input type="text" name="name" placeholder="Nombre" required>
+            <input type="text" name="apellidos" placeholder="Apellidos" required>
+            <input type="email" name="email" placeholder="Correo Electrónico" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <input type="password" name="password_confirmation" placeholder="Confirmar Contraseña" required>
+            <button type="submit">Registrarme</button>
             </form>
             <p>¿Ya tienes una cuenta? <a href="#" onclick="showLogin()">Iniciar Sesión</a></p>
         </div>

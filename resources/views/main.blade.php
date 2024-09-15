@@ -35,51 +35,49 @@
 
 <div class="main-banner">
     <img src="{{ asset('img/C.png') }}" alt="Banner" class="banner-image">
-
-    </div>
-    <h2 class="featured-products-title">PRODUCTOS DESTACADOS</h2>
-    <hr class="divider">
-    <div class="product-section">
-    <div class="product-card">
-        <img src="{{ asset('img/ZXT-H9-Elite.webp') }}" alt="NZXT H9 Elite">
-        <h3>NZXT H9 Elite</h3>
-        <p class="price">$2,799.99</p>
-        <button class="btn-add-to-cart" data-product-id="{{ $product->id }}">Añadir al carrito</button>
-
-        <button class="view-more">Ver más</button>
-        
-    </div>
-    <div class="product-card">
-        <img src="{{ asset('img/Monitor-Samsung-Odyssey-G4.jpg') }}" alt="Samsung Odyssey G4 LED">
-        <h3>Monitor Samsung Odyssey G4</h3>
-        <p class="price">$3,449.99</p>
-        <button>Añadir</button>
-        <button class="view-more">Ver más</button>
-    </div>
-    <div class="product-card">
-        <img src="{{ asset('img/Laptop-MSI-Raider-GE76HX.webp') }}" alt="MSI Raider GE76HX">
-        <h3>Laptop MSI Raider GE76HX</h3>
-        <p class="price">$17,799.99</p>
-        <button>Añadir</button>
-        <button class="view-more">Ver más</button>
-        
-    </div>
-    <div class="product-card">
-        <img src="{{ asset('img/Radeon-RX-6600.webp') }}" alt="Radeon RX 6600">
-        <h3>Radeon RX 6600</h3>
-        <p class="price">$6,967.00</p>
-        <button>Añadir</button>
-        <button class="view-more">Ver más</button>
-    </div>
-    <div class="product-card">
-        <img src="{{ asset('img/AMD-Ryzen-7-5800X.jpg') }}" alt="New Product">
-        <h3>Procesador AMD Ryzen 7 5800X</h3>
-        <p class="price">$2999.99</p>
-        <button>Añadir</button>
-        <button class="view-more">Ver más</button>
-    </div>
 </div>
 
+<h2 class="featured-products-title">PRODUCTOS DESTACADOS</h2>
+<hr class="divider">
+
+<div class="product-section">
+    @foreach($products as $product)
+    <div class="product-card">
+        <img src="{{ asset('img/' . $product->image) }}" alt="{{ $product->name }}">
+        <h3>{{ $product->name }}</h3>
+        <p class="price">${{ number_format($product->price, 2) }}</p>
+        <button class="btn-add-to-cart" data-product-id="{{ $product->id }}">Añadir al carrito</button>
+        <button class="view-more" data-product-id="{{ $product->id }}">Ver más</button>
+    </div>
+    @endforeach
+</div>
+
+<footer>
+    <p>&copy; 2024 TechZone | Tiendas de marcas | ¿Cómo comprar? | Historial de pedidos | Configurador de PC | Garantías y devoluciones | Preguntas frecuentes | Quiénes somos | Condiciones generales | Aviso de privacidad | ¿Quieres ser proveedor? | Únete a nuestro equipo</p>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Manejo del botón "Añadir al carrito"
+        document.querySelectorAll('.btn-add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const productId = this.getAttribute('data-product-id');
+               
+                alert(`Producto ${productId} añadido al carrito.`);
+                
+            });
+        });
+
+        // Manejo del botón "Ver más"
+        document.querySelectorAll('.view-more').forEach(button => {
+            button.addEventListener('click', function() {
+                const productId = this.getAttribute('data-product-id');
+                
+                window.location.href = `/products/${productId}`;
+            });
+        });
+    });
+</script>
 
 </body>
 </html>

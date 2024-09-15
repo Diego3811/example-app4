@@ -300,3 +300,25 @@ footer a:hover {
         width: 230px;
     }
 }
+
+
+.form-section {
+    display: none;
+}
+.form-section.active {
+    display: block;
+}
+.alert {
+    color: red;
+    border: 1px solid red;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+.alert ul {
+    list-style-type: none;
+    padding: 0;
+}
+.alert ul li {
+    margin: 0;
+}
