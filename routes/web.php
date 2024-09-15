@@ -4,6 +4,20 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\FormController;
+
+
+
+
+
+Route::get('/', function () {
+    return view('welcome');
+})->name('welcome');
+
+Route::post('/formulario', [FormController::class, 'store'])->name('store.form');
+
+
+
 
 Route::get('/', function () {
     return view('welcome');

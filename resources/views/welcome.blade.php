@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechZone - Nueva Página</title>
+    <title>TechZone</title>
     <link rel="stylesheet" href="{{ asset('css/styles2.css') }}">
     <style>
         .form-section {
-            display: none; 
+            display: none;
         }
         .form-section.active {
-            display: block; /
+            display: block;
         }
     </style>
 </head>
@@ -22,14 +22,7 @@
             <img src="{{ asset('img/TechZone_Logo_Dark.png') }}" alt="TechZone Logo" class="logo">
         </div>
     </div>
-    <!-- <div class="nav-links">
-        <p><a href="#">Nosotros</a> | <a href="#">Contacto</a> | <a href="#">Blog</a></p>
-    </div> -->
     <div class="header-actions">
-       <!--  <div class="search-bar">
-            <input type="text" placeholder="Buscar...">
-        </div> -->
-       
         <div class="login-register">
             <a href="#" class="login" onclick="showLogin()">Inicio de Sesión</a>
             <a href="#" class="register" onclick="showRegister()">Registro</a>
@@ -47,12 +40,13 @@
         <div class="form-box">
             <img src="{{ asset('img/TechZone_Logo_Dark.png') }}" alt="TechZone Logo" class="logo">
             <h3>Registro de nuevo usuario</h3>
-            <form action="#">
-                <input type="text" placeholder="Nombre">
-                <input type="text" placeholder="Apellidos">
-                <input type="email" placeholder="Correo Electrónico">
-                <input type="password" placeholder="Contraseña">
-                <input type="password" placeholder="Confirmar Contraseña">
+            <form action="{{ route('store.form') }}" method="POST">
+                @csrf
+                <input type="text" name="name" placeholder="Nombre" required>
+                <input type="text" name="apellidos" placeholder="Apellidos" required>
+                <input type="email" name="correo" placeholder="Correo Electrónico" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <input type="password" name="password_confirmation" placeholder="Confirmar Contraseña" required>
                 <button type="submit">Registrarme</button>
             </form>
             <p>¿Ya tienes una cuenta? <a href="#" onclick="showLogin()">Iniciar Sesión</a></p>
@@ -65,9 +59,10 @@
         <div class="form-box">
             <img src="{{ asset('img/TechZone_Logo_Dark.png') }}" alt="TechZone Logo" class="logo">
             <h3>¡Bienvenido de nuevo!</h3>
-            <form action="#">
-                <input type="text" placeholder="Nombre de Usuario">
-                <input type="password" placeholder="Contraseña">
+            <form action="{{ route('login') }}" method="POST">
+                @csrf
+                <input type="text" name="username" placeholder="Nombre de Usuario" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
                 <a href="#">¿Olvidaste tu Contraseña?</a>
                 <button type="submit">Ingresar</button>
             </form>
