@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,6 +22,14 @@ Route::get('/ayuda', function () {
 });
 
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+
+
+Route::get('/products', [ProductController::class, 'index']);
+
+
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
