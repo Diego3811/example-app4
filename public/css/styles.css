@@ -210,9 +210,7 @@ body {
     width: 100%;
 }
 
-/* Consultas de medios para hacer el diseño responsivo */
 
-/* Pantallas pequeñas (móviles) */
 @media (max-width: 767px) {
     .header {
         flex-direction: column;
@@ -278,7 +276,7 @@ body {
     }
 }
 
-/* Pantallas medianas (tablets) */
+
 @media (min-width: 768px) and (max-width: 1024px) {
     .search-bar input {
         width: 80%;

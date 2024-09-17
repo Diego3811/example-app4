@@ -109,7 +109,10 @@ body {
 }
 
 
-
+.main-content {
+    flex-grow: 1; /* Este hará que el contenido principal se expanda y el footer quede abajo */
+    padding: 20px;
+}
 
 
 footer {
