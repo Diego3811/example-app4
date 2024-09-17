@@ -5,6 +5,28 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FormController;
+use Auth0\Login\Auth0Controller;
+
+
+
+use App\Http\Controllers\AuthController;
+
+Route::post('/register', [AuthController::class, 'store'])->name('store.form');
+
+// Ruta para la página principal después del registro
+Route::get('/main', function () {
+    return view('main');
+})->name('main');
+
+
+
+
+
+Route::get('/login', [Auth0Controller::class, 'login'])->name('login');
+Route::get('/logout', [Auth0Controller::class, 'logout'])->name('logout');
+Route::get('/auth/callback', [Auth0Controller::class, 'callback']);
+
+
 
 
 Route::get('/', function () {
@@ -13,12 +35,6 @@ Route::get('/', function () {
 
 
 Route::post('/formulario', [FormController::class, 'store'])->name('store.form');
-
-
-Route::get('/main', function () {
-    return view('main');
-})->name('main');
-
 
 Route::get('/regis', function () {
     return view('regis');

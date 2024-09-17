@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "170582b3e01fb708b05c427c29f6e52f",
+    "content-hash": "fd3bda5b5dc7b9d5a61e788f126ab36d",
     "packages": [
         {
             "name": "auth0/auth0-php",
@@ -104,6 +104,117 @@
                 "source": "https://github.com/auth0/auth0-PHP/tree/8.11.1"
             },
             "time": "2024-01-11T15:28:10+00:00"
+        },
+        {
+            "name": "auth0/login",
+            "version": "7.15.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/auth0/laravel-auth0.git",
+                "reference": "c50c6cb6d1c48998ae7fef2f44b5528ba7e7775d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/auth0/laravel-auth0/zipball/c50c6cb6d1c48998ae7fef2f44b5528ba7e7775d",
+                "reference": "c50c6cb6d1c48998ae7fef2f44b5528ba7e7775d",
+                "shasum": ""
+            },
+            "require": {
+                "auth0/auth0-php": "^8.10",
+                "ext-json": "*",
+                "illuminate/contracts": "^11",
+                "illuminate/http": "^11",
+                "illuminate/support": "^11",
+                "php": "^8.2",
+                "psr-discovery/all": "^1",
+                "psr/cache": "^2 || ^3"
+            },
+            "require-dev": {
+                "ergebnis/composer-normalize": "^2",
+                "friendsofphp/php-cs-fixer": "^3",
+                "larastan/larastan": "^2",
+                "mockery/mockery": "^1",
+                "orchestra/testbench": "^9",
+                "pestphp/pest": "^2",
+                "pestphp/pest-plugin-laravel": "^2",
+                "phpstan/phpstan": "^1",
+                "phpstan/phpstan-strict-rules": "^1",
+                "psalm/plugin-laravel": "^2.10",
+                "psr-mock/http": "^1",
+                "rector/rector": "^1",
+                "squizlabs/php_codesniffer": "^3",
+                "symfony/cache": "^6 || ^7",
+                "vimeo/psalm": "^5",
+                "wikimedia/composer-merge-plugin": "^2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "Auth0": "Auth0\\Laravel\\Facade\\Auth0"
+                    },
+                    "providers": [
+                        "Auth0\\Laravel\\ServiceProvider"
+                    ]
+                },
+                "merge-plugin": {
+                    "ignore-duplicates": false,
+                    "include": [
+                        "composer.local.json"
+                    ],
+                    "merge-dev": true,
+                    "merge-extra": false,
+                    "merge-extra-deep": false,
+                    "merge-scripts": false,
+                    "recurse": true,
+                    "replace": true
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Auth0\\Laravel\\": [
+                        "src/",
+                        "deprecated/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Auth0",
+                    "email": "support@auth0.com",
+                    "homepage": "https://auth0.com/"
+                }
+            ],
+            "description": "Auth0 Laravel SDK. Straight-forward and tested methods for implementing authentication, and accessing Auth0's Management API endpoints.",
+            "homepage": "https://github.com/auth0/laravel-auth0",
+            "keywords": [
+                "Authentication",
+                "JSON Web Token",
+                "JWK",
+                "OpenId",
+                "api",
+                "auth",
+                "auth0",
+                "authorization",
+                "json web key",
+                "jwt",
+                "laravel",
+                "login",
+                "oauth",
+                "protect",
+                "secure"
+            ],
+            "support": {
+                "email": "support@auth0.com",
+                "forum": "https://community.auth0.com",
+                "issues": "https://github.com/auth0/laravel-auth0/issues",
+                "source": "https://github.com/auth0/laravel-auth0"
+            },
+            "time": "2024-06-04T03:42:48+00:00"
         },
         {
             "name": "brick/math",

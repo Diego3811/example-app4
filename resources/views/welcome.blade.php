@@ -5,28 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechZone</title>
     <link rel="stylesheet" href="{{ asset('css/styles2.css') }}">
-    <style>
-        .form-section {
-            display: none;
+    <script src="https://cdn.auth0.com/js/auth0/9.19/auth0.min.js"></script>
+   
+    <script>
+        const auth0 = new auth0.WebAuth({
+            domain: 'dev-zfktb7m4a2v7mgn4.us.auth0.com',
+            clientID: 'lpwhevLC6grLyMd3GXtv29uHmWY5407f',
+            redirectUri: 'http://localhost:8000/callback',   
+            responseType: 'token id_token',
+            scope: 'openid profile email'
+        });
+
+        function loginWithAuth0() {
+            auth0.authorize();
         }
-        .form-section.active {
-            display: block;
-        }
-        .alert {
-            color: red;
-            border: 1px solid red;
-            padding: 10px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-        }
-        .alert ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .alert ul li {
-            margin: 0;
-        }
-    </style>
+    </script>
 </head>
 <body>
 
@@ -67,13 +60,14 @@
             @endif
             
             <form action="{{ route('store.form') }}" method="POST">
-            @csrf
-            <input type="text" name="name" placeholder="Nombre" required>
-            <input type="text" name="apellidos" placeholder="Apellidos" required>
-            <input type="email" name="email" placeholder="Correo Electrónico" required>
-            <input type="password" name="password" placeholder="Contraseña" required>
-            <input type="password" name="password_confirmation" placeholder="Confirmar Contraseña" required>
-            <button type="submit">Registrarme</button>
+                @csrf
+                <input type="text" name="name" placeholder="Nombre" required>
+                <input type="text" name="apellidos" placeholder="Apellidos" required>
+                <input type="email" name="email" placeholder="Correo Electrónico" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <input type="password" name="password_confirmation" placeholder="Confirmar Contraseña" required>
+                <a href="javascript:void(0);" class="auth0-button" onclick="loginWithAuth0()">Iniciar Sesión con Auth0</a>
+                <button type="submit">Registrarme</button>
             </form>
             <p>¿Ya tienes una cuenta? <a href="#" onclick="showLogin()">Iniciar Sesión</a></p>
         </div>
@@ -85,13 +79,7 @@
         <div class="form-box">
             <img src="{{ asset('img/TechZone_Logo_Dark.png') }}" alt="TechZone Logo" class="logo">
             <h3>¡Bienvenido de nuevo!</h3>
-            <form action="{{ route('login') }}" method="POST">
-                @csrf
-                <input type="text" name="username" placeholder="Nombre de Usuario" required>
-                <input type="password" name="password" placeholder="Contraseña" required>
-                <a href="#">¿Olvidaste tu Contraseña?</a>
-                <button type="submit">Ingresar</button>
-            </form>
+            <a href="javascript:void(0);" class="auth0-button" onclick="loginWithAuth0()">Iniciar Sesión con Auth0</a>
             <p>¿No tienes una cuenta? <a href="#" onclick="showRegister()">Registrarme</a></p>
         </div>
     </div>
