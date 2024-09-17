@@ -58,7 +58,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Manejo del botón "Añadir al carrito"
+       
         document.querySelectorAll('.btn-add-to-cart').forEach(button => {
             button.addEventListener('click', function() {
                 const productId = this.getAttribute('data-product-id');
@@ -68,7 +68,7 @@
             });
         });
 
-        // Manejo del botón "Ver más"
+        
         document.querySelectorAll('.view-more').forEach(button => {
             button.addEventListener('click', function() {
                 const productId = this.getAttribute('data-product-id');
