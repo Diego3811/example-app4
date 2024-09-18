@@ -25,9 +25,11 @@
             <img src="{{ asset('img/cart.png') }}" alt="Carrito de Compras">
         </div>
         <div class="login-register">
-            <a href="#" class="login">Inicio de Sesión</a>
-            <a href="#" class="register">Registro</a>
-        </div>
+    <a href="#">
+        <img src="{{ asset('img/usuario.png') }}" alt="Usuario" class="user-icon">
+    </a>
+</div>
+
     </div>
 </div>
 

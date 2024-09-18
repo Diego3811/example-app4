@@ -5,7 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FormController;
-use Auth0\Login\Auth0Controller;
+/* use Auth0\Login\Auth0Controller; */
 
 
 
@@ -20,11 +20,12 @@ Route::get('/main', function () {
 
 
 
+ Route::get('/login', [AuthController::class, 'login'])->name('login');  
 
+Route::get('/demo', [AuthController::class, 'demo'])->name('demo');
 
-Route::get('/login', [Auth0Controller::class, 'login'])->name('login');
-Route::get('/logout', [Auth0Controller::class, 'logout'])->name('logout');
-Route::get('/auth/callback', [Auth0Controller::class, 'callback']);
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+/* Route::get('/auth/callback', [Auth0Controller::class, 'callback']); */
 
 
 

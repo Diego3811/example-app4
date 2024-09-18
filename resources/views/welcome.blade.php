@@ -66,7 +66,7 @@
                 <input type="email" name="email" placeholder="Correo Electrónico" required>
                 <input type="password" name="password" placeholder="Contraseña" required>
                 <input type="password" name="password_confirmation" placeholder="Confirmar Contraseña" required>
-                <a href="javascript:void(0);" class="auth0-button" onclick="loginWithAuth0()">Iniciar Sesión con Auth0</a>
+                <a href="javascript:void(0);" class="auth0-button" onclick="loginWithAuth0()">Iniciar Sesión con Google o github</a>
                 <button type="submit">Registrarme</button>
             </form>
             <p>¿Ya tienes una cuenta? <a href="#" onclick="showLogin()">Iniciar Sesión</a></p>
@@ -74,21 +74,44 @@
     </div>
 
     <!-- Formulario de inicio de sesión -->
-    <div class="form-section" id="login-form">
-        <h2>INICIAR SESIÓN</h2>
-        <div class="form-box">
-            <img src="{{ asset('img/TechZone_Logo_Dark.png') }}" alt="TechZone Logo" class="logo">
-            <h3>¡Bienvenido de nuevo!</h3>
-            <a href="javascript:void(0);" class="auth0-button" onclick="loginWithAuth0()">Iniciar Sesión con Auth0</a>
-            <p>¿No tienes una cuenta? <a href="#" onclick="showRegister()">Registrarme</a></p>
-        </div>
-    </div>
-</div>
+    <?php
+// define variables and set to empty values
+$password = $email = "";
 
-<footer>
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $email = test_input($_POST["email"]);
+  $password = test_input($_POST["password"]);
+ 
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+
+
+<form method="get" action="{{ route('demo') }}">  
+  E-mail: <input type="text" name="email">
+    <br><br>
+   Contraseña <input type="password" name="password">
+  <br><br> 
+  <input type="submit" name="submit" value="Submit">
+
+  <?php
+
+echo $email;
+echo "<br>";
+
+
+?>
+
+<!-- <footer>
     <p>Tiendas de marcas | ¿Cómo comprar? | Historial de pedidos | Configurador de PC | Garantías y devoluciones | Preguntas frecuentes | Quiénes somos | Condiciones generales | Aviso de privacidad | ¿Quieres ser proveedor? | Únete a nuestro equipo
     © 2024 - 2024 TechZone</p>
-</footer>
+</footer> -->
 
 <script>
     function showLogin() {

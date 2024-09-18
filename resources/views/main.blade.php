@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 </head>
 <body>
-
 <div class="header">
     <div class="logo-container">
         <div class="logo-background">
@@ -41,15 +40,7 @@
 <hr class="divider">
 
 <div class="product-section">
-    @foreach($products as $product)
-    <div class="product-card">
-        <img src="{{ asset('img/' . $product->image) }}" alt="{{ $product->name }}">
-        <h3>{{ $product->name }}</h3>
-        <p class="price">${{ number_format($product->price, 2) }}</p>
-        <button class="btn-add-to-cart" data-product-id="{{ $product->id }}">Añadir al carrito</button>
-        <button class="view-more" data-product-id="{{ $product->id }}">Ver más</button>
-    </div>
-    @endforeach
+  
 </div>
 
 <footer>
@@ -73,11 +64,11 @@
             button.addEventListener('click', function() {
                 const productId = this.getAttribute('data-product-id');
                 
-                window.location.href = `/products/${productId}`;
+               /*  window.location.href = `/products/${productId}`; */
             });
         });
-    });
+    }); 
 </script>
-
 </body>
+
 </html>
