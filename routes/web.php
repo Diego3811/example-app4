@@ -63,3 +63,7 @@ Route::middleware('auth')->group(function () {
 
 
 require __DIR__.'/auth.php';
+
+Route::get('/regisprod', function () {
+    return view('regisprod');
+})->name('regisprod');
