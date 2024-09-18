@@ -12,8 +12,8 @@ class ProductController extends Controller
     {
         
         $products = [
-            (object) ['name' => 'Product 1', 'description' => 'Description for Product 1', 'price' => 100],
-            (object) ['name' => 'Product 2', 'description' => 'Description for Product 2', 'price' => 200],
+            (object) ['name' => 'Product_1', 'description' => 'Description_for_Product 1', 'price' => 100],
+            (object) ['name' => 'Product_2', 'description' => 'Description_for_Product 2', 'price' => 200],
         ];
 
        
