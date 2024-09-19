@@ -49,33 +49,6 @@ class User extends Authenticatable
     ];
 }
 
-namespace App\Models;
 
 
 
-class User extends Authenticatable implements Auth0UserContract
-{
-    use Notifiable, Auth0User;
-
-    /**
-     * Los atributos que son asignables masivamente.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name',
-        'apellidos',
-        'email',
-        'password',
-    ];
-
-    /**
-     * Los atributos que deben ocultarse para arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-}
