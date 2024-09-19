@@ -66,7 +66,8 @@
                 <input type="email" name="email" placeholder="Correo Electrónico" required>
                 <input type="password" name="password" placeholder="Contraseña" required>
                 <input type="password" name="password_confirmation" placeholder="Confirmar Contraseña" required>
-                <a href="javascript:void(0);" class="auth0-button" onclick="loginWithAuth0()">Iniciar Sesión con Google o github</a>
+                <a href="{{ route('auth0login') }}" class="auth0-button">Iniciar Sesión con Auth0</a>
+
                 <button type="submit">Registrarme</button>
             </form>
             <p>¿Ya tienes una cuenta? <a href="#" onclick="showLogin()">Iniciar Sesión</a></p>

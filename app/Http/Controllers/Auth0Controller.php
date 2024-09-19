@@ -1,22 +1,39 @@
 <?php
 
-/* namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
- use Auth0\Login\Auth0Controller as BaseAuth0Controller; 
-use Illuminate\Http\Request;
+use Auth0\Login\Auth0Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
-class Auth0Controller extends BaseAuth0Controller
+class Auth0LoginController extends Auth0Controller
 {
-    public function callback(Request $request)
+    /**
+     * Overriding Auth0's callback method to handle user creation and login.
+     */
+    public function callback()
     {
-        
-        $user = \Auth::user();
-        
+        $auth0User = $this->getUser();
+
+        // Verificar si el usuario ya existe
+        $user = User::where('email', $auth0User['email'])->first();
+
         if (!$user) {
-            return redirect()->route('login')->with('error', 'Error al iniciar sesión con Auth0.');
+            // Crear un nuevo usuario
+            $user = User::create([
+                'name' => $auth0User['name'] ?? 'Nombre',
+                'apellidos' => $auth0User['family_name'] ?? 'Apellidos',
+                'email' => $auth0User['email'],
+                // Generar una contraseña aleatoria ya que Auth0 maneja la autenticación
+                'password' => Hash::make(str_random(24)),
+            ]);
         }
 
-        return redirect()->route('main')->with('success', 'Inicio de sesión exitoso.');
-    }
-}  */
+        // Iniciar sesión al usuario
+        Auth::login($user, true);
 
+        // Redirigir al usuario a la página deseada
+        return redirect()->intended('/main');
+    }
+}

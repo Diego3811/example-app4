@@ -5,7 +5,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FormController;
-/* use Auth0\Login\Auth0Controller; */
+use App\Http\Controllers\Auth\Auth0LoginController;
+
 
 
 
@@ -19,8 +20,8 @@ Route::get('/main', function () {
 })->name('main');
 
 
-
- Route::get('/login', [AuthController::class, 'login'])->name('login');  
+/* 
+ Route::get('/login', [AuthController::class, 'login'])->name('login');   */
 
 Route::get('/demo', [AuthController::class, 'demo'])->name('demo');
 
@@ -68,3 +69,37 @@ require __DIR__.'/auth.php';
 Route::get('/regisprod', function () {
     return view('regisprod');
 })->name('regisprod');
+
+
+
+
+
+// Ruta de inicio de sesión con Auth0
+Route::get('/login', [Auth0LoginController::class, 'login'])->name('login');
+
+// Ruta de callback de Auth0
+route::get('/auth/callback', [Auth0LoginController::class, 'callback'])->name('auth0.callback');
+
+// Ruta de cierre de sesión
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect()->route('welcome');
+})->name('logout');
+
+// Ruta protegida por autenticación
+Route::get('/main', function () {
+    return view('main');
+})->middleware('auth')->name('main');
+
+
+
+
+// Auth0 login route
+Route::get('/login', [Auth0LoginController::class, 'login'])->name('auth0login');
+
+// Auth0 callback route
+Route::get('/auth/callback', [Auth0LoginController::class, 'callback'])->name('auth0.callback');
+
+
+
+Route::get('/authlogin', [Auth0LoginController::class, 'login'])->name('auth0login');
