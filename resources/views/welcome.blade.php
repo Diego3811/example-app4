@@ -66,7 +66,9 @@
                 <input type="email" name="email" placeholder="Correo Electrónico" required>
                 <input type="password" name="password" placeholder="Contraseña" required>
                 <input type="password" name="password_confirmation" placeholder="Confirmar Contraseña" required>
-                <a href="{{ route('auth0login') }}" class="auth0-button">Iniciar Sesión con Auth0</a>
+                <a href="{{ route('login') }}">Iniciar Sesión</a>
+
+
 
                 <button type="submit">Registrarme</button>
             </form>
